@@ -2,6 +2,9 @@ import { useEffect } from "react";
 import Nav from "@/components/propilo/Nav";
 import Hero from "@/components/propilo/Hero";
 import Services from "@/components/propilo/Services";
+import Architecture from "@/components/propilo/Architecture";
+import Products from "@/components/propilo/Products";
+import Industries from "@/components/propilo/Industries";
 import Method from "@/components/propilo/Method";
 import Console from "@/components/propilo/Console";
 import Footer from "@/components/propilo/Footer";
@@ -21,6 +24,9 @@ const Index = () => {
       <Nav />
       <Hero />
       <Services />
+      <Architecture />
+      <Products />
+      <Industries />
       <Method />
       <Console />
       <Footer />
