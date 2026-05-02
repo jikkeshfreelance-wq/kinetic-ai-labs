@@ -2,6 +2,8 @@ import { useEffect } from "react";
 import Nav from "@/components/propilo/Nav";
 import Hero from "@/components/propilo/Hero";
 import Services from "@/components/propilo/Services";
+import ProfitEngine from "@/components/propilo/ProfitEngine";
+import GrowthLoop from "@/components/propilo/GrowthLoop";
 import Architecture from "@/components/propilo/Architecture";
 import Products from "@/components/propilo/Products";
 import Industries from "@/components/propilo/Industries";
@@ -23,7 +25,9 @@ const Index = () => {
     <main className="bg-background text-foreground">
       <Nav />
       <Hero />
+      <ProfitEngine />
       <Services />
+      <GrowthLoop />
       <Architecture />
       <Products />
       <Industries />
