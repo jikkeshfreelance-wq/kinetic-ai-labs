@@ -11,11 +11,11 @@ const ContactPage = () => {
       <Nav />
       <PageShell
         pageTitle="Contact — Propilo"
-        pageDescription="Declare a project with Propilo. No forms. A console. Response within 24h."
+        pageDescription="Get in touch with Propilo. Tell us about your project and we'll respond within 24 hours."
         index="04"
         eyebrow="Contact"
-        title={<>No contact form.{" "}<span className="italic text-muted-foreground">A console.</span></>}
-        lede="Tell us the system you want to exist. We'll respond within 24h with a yes, a no, or a sharper question."
+        title={<>Let&apos;s talk about{" "}<span className="italic text-muted-foreground">your project.</span></>}
+        lede="Send us a few details and a real human will reply within 24 hours — with a yes, a no, or a sharper question."
       >
         <Console />
         <section className="border-t border-border">
