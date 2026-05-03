@@ -1,4 +1,5 @@
 import node from "@/assets/node.png";
+import SystemAnimation from "./SystemAnimation";
 
 const Method = () => (
   <section id="method" className="relative border-t border-border bg-secondary/40">
@@ -9,12 +10,12 @@ const Method = () => (
         </div>
         <div className="md:col-span-9 reveal">
           <h2 className="font-serif-display text-5xl md:text-7xl leading-[0.95] tracking-tight">
-            Show. <span className="italic text-muted-foreground">Don't tell.</span>
+            How the system <span className="italic text-muted-foreground">actually works.</span>
           </h2>
           <p className="mt-8 max-w-2xl font-mono-tech text-sm text-muted-foreground leading-relaxed">
             <span className="text-foreground">// </span>
-            A live engineering audit. No decks. No fluff.
-            Watch us decompose a real production system in 6 minutes.
+            Signal in. Reasoning in the middle. Action out — wired into a closed feedback loop.
+            This is the architecture we ship under every Propilo engagement.
           </p>
         </div>
       </div>
@@ -24,27 +25,7 @@ const Method = () => (
           <img src={node} alt="" width={768} height={768} className="w-full h-full object-contain" loading="lazy" />
         </div>
 
-        <div className="relative border border-border bg-background p-3 shadow-[var(--shadow-elevated)]">
-          <div className="flex items-center justify-between px-4 py-2 border-b border-border">
-            <div className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-foreground/20" />
-              <span className="w-2.5 h-2.5 rounded-full bg-foreground/20" />
-              <span className="w-2.5 h-2.5 rounded-full bg-foreground/20" />
-            </div>
-            <div className="font-mono-tech text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
-              propilo / audit_06.loom
-            </div>
-            <div className="font-mono-tech text-[10px] text-muted-foreground">REC ●</div>
-          </div>
-          <div className="relative aspect-video bg-foreground overflow-hidden">
-            <iframe
-              src="https://www.loom.com/embed/e883f718a8654e80a96f9d92b27f35c2?hide_owner=true&hide_share=true&hideEmbedTopBar=true"
-              title="Propilo engineering audit"
-              allowFullScreen
-              className="absolute inset-0 w-full h-full"
-            />
-          </div>
-        </div>
+        <SystemAnimation />
 
         <div className="grid md:grid-cols-4 gap-6 mt-10">
           {[
