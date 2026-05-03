@@ -8,7 +8,7 @@ import Architecture from "@/components/propilo/Architecture";
 import Products from "@/components/propilo/Products";
 import Industries from "@/components/propilo/Industries";
 import Method from "@/components/propilo/Method";
-import Console from "@/components/propilo/Console";
+import ContactCTA from "@/components/propilo/ContactCTA";
 import Footer from "@/components/propilo/Footer";
 import { useReveal } from "@/hooks/useReveal";
 
@@ -32,7 +32,7 @@ const Index = () => {
       <Products />
       <Industries />
       <Method />
-      <Console />
+      <ContactCTA />
       <Footer />
     </main>
   );
