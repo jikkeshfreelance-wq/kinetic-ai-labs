@@ -7,7 +7,7 @@ import { useReveal } from "@/hooks/useReveal";
 export type Capability = { code: string; title: string; body: string };
 export type ProcessStep = { code: string; title: string; body: string };
 export type Deliverable = { title: string; body: string };
-export type StackItem = { group: string; items: string[] };
+export type Workflow = { trigger: string; agent: string; outcome: string; lift: string };
 export type FAQ = { q: string; a: string };
 export type Metric = { k: string; v: string; note: string };
 
