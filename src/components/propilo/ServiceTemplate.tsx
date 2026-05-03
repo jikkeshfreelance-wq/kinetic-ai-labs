@@ -150,22 +150,22 @@ const ServiceTemplate = (p: ServiceTemplateProps) => {
           </div>
         </section>
 
-        {/* DELIVERABLES + STACK */}
+        {/* DELIVERABLES + WORKFLOWS */}
         <section className="border-b border-border">
           <div className="max-w-[1400px] mx-auto px-6 lg:px-10 py-28 grid lg:grid-cols-12 gap-12">
-            <div className="lg:col-span-7 reveal">
+            <div className="lg:col-span-5 reveal">
               <div className="text-[10px] uppercase tracking-[0.32em] text-muted-foreground">
-                [ D ] Deliverables
+                [ O ] Outcomes
               </div>
-              <h2 className="font-serif-display text-4xl md:text-6xl leading-[0.95] tracking-tight mt-6">
+              <h2 className="font-serif-display text-4xl md:text-5xl leading-[0.95] tracking-tight mt-6">
                 What lands in your{" "}
-                <span className="italic text-muted-foreground">repository.</span>
+                <span className="italic text-muted-foreground">business.</span>
               </h2>
               <ul className="mt-12 border-t border-border">
                 {p.deliverables.map((d) => (
-                  <li key={d.title} className="py-6 border-b border-border grid md:grid-cols-12 gap-6">
-                    <div className="md:col-span-4 font-serif-display text-2xl">{d.title}</div>
-                    <div className="md:col-span-8 font-mono-tech text-sm text-muted-foreground leading-relaxed">
+                  <li key={d.title} className="py-6 border-b border-border">
+                    <div className="font-serif-display text-2xl">{d.title}</div>
+                    <div className="font-mono-tech text-sm text-muted-foreground leading-relaxed mt-3">
                       {d.body}
                     </div>
                   </li>
@@ -173,28 +173,44 @@ const ServiceTemplate = (p: ServiceTemplateProps) => {
               </ul>
             </div>
 
-            <aside className="lg:col-span-5 reveal">
+            <aside className="lg:col-span-7 reveal">
               <div className="text-[10px] uppercase tracking-[0.32em] text-muted-foreground">
-                [ S ] Stack
+                [ W ] Workflows in motion
               </div>
-              <h3 className="font-serif-display text-3xl mt-6 leading-tight">
-                Tools we reach for, by default.
+              <h3 className="font-serif-display text-3xl md:text-4xl mt-6 leading-tight">
+                A day in the life of your{" "}
+                <span className="italic text-muted-foreground">AI agents.</span>
               </h3>
-              <div className="mt-10 space-y-8">
-                {p.stack.map((s) => (
-                  <div key={s.group}>
-                    <div className="font-mono-tech text-[10px] uppercase tracking-[0.3em] text-muted-foreground mb-3">
-                      {s.group}
+              <div className="mt-10 border-t border-l border-border">
+                {p.workflows.map((w, i) => (
+                  <div
+                    key={i}
+                    className="grid grid-cols-12 border-r border-b border-border"
+                  >
+                    <div className="col-span-12 md:col-span-5 p-6 border-b md:border-b-0 md:border-r border-border">
+                      <div className="font-mono-tech text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
+                        Trigger
+                      </div>
+                      <div className="font-mono-tech text-sm text-foreground mt-3 leading-relaxed">
+                        {w.trigger}
+                      </div>
+                      <div className="font-mono-tech text-[10px] uppercase tracking-[0.3em] text-muted-foreground mt-6">
+                        Agent action
+                      </div>
+                      <div className="font-mono-tech text-sm text-muted-foreground mt-3 leading-relaxed">
+                        {w.agent}
+                      </div>
                     </div>
-                    <div className="flex flex-wrap gap-2">
-                      {s.items.map((it) => (
-                        <span
-                          key={it}
-                          className="font-mono-tech text-[11px] uppercase tracking-widest border border-foreground/30 px-3 py-1.5"
-                        >
-                          {it}
-                        </span>
-                      ))}
+                    <div className="col-span-12 md:col-span-7 p-6 bg-secondary/30">
+                      <div className="font-mono-tech text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
+                        Business outcome
+                      </div>
+                      <div className="font-serif-display text-xl mt-3 leading-snug">
+                        {w.outcome}
+                      </div>
+                      <div className="font-mono-tech text-[11px] uppercase tracking-[0.22em] text-foreground mt-5 inline-block border border-foreground/40 px-3 py-1.5">
+                        {w.lift}
+                      </div>
                     </div>
                   </div>
                 ))}
