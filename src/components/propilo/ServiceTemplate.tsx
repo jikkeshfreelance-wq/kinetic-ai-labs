@@ -24,7 +24,7 @@ export interface ServiceTemplateProps {
   capabilities: Capability[];
   process: ProcessStep[];
   deliverables: Deliverable[];
-  stack: StackItem[];
+  workflows: Workflow[];
   faqs: FAQ[];
   prev: { to: string; label: string };
   next: { to: string; label: string };
