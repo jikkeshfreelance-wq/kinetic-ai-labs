@@ -3,34 +3,14 @@ import { toast } from "sonner";
 import { z } from "zod";
 
 const contactSchema = z.object({
-  name: z.string().trim().min(1, "Please enter your name").max(100, "Name is too long"),
   email: z.string().trim().email("Please enter a valid email").max(255, "Email is too long"),
-  company: z.string().trim().max(120, "Company name is too long").optional(),
-  budget: z.string().trim().max(60).optional(),
-  message: z
-    .string()
-    .trim()
-    .min(10, "Tell us a little more (min 10 characters)")
-    .max(1000, "Please keep it under 1000 characters"),
 });
 
-const BUDGETS = ["< $10k", "$10k – $25k", "$25k – $75k", "$75k+", "Not sure yet"];
-
 const Console = () => {
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    company: "",
-    budget: "",
-    message: "",
-  });
+  const [form, setForm] = useState({ email: "" });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
-
-  const set = (k: keyof typeof form) => (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
-  ) => setForm((f) => ({ ...f, [k]: e.target.value }));
 
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -42,7 +22,7 @@ const Console = () => {
         if (key && !fieldErrors[key]) fieldErrors[key] = iss.message;
       });
       setErrors(fieldErrors);
-      toast.error("Please fix the highlighted fields.");
+      toast.error("Please enter a valid email.");
       return;
     }
     setErrors({});
@@ -63,7 +43,7 @@ const Console = () => {
               [ ✓ ] Message received
             </div>
             <h3 className="font-serif-display text-4xl md:text-5xl mt-6 leading-tight">
-              Thanks, {form.name.split(" ")[0]}.{" "}
+              Thanks.{" "}
               <span className="italic text-muted-foreground">We&apos;ll be in touch.</span>
             </h3>
             <p className="mt-6 font-mono-tech text-sm text-muted-foreground">
@@ -89,7 +69,7 @@ const Console = () => {
               <span className="italic text-muted-foreground">your project.</span>
             </h2>
             <p className="mt-6 max-w-xl font-mono-tech text-sm text-muted-foreground leading-relaxed">
-              Fill in a few details and we&apos;ll respond within 24 hours with next steps.
+              Drop your email and we&apos;ll respond within 24 hours with next steps.
             </p>
           </div>
         </div>
@@ -98,90 +78,42 @@ const Console = () => {
           <form
             onSubmit={onSubmit}
             noValidate
-            className="lg:col-span-8 reveal border border-border bg-background p-6 md:p-10 shadow-[var(--shadow-elevated)] grid grid-cols-1 md:grid-cols-2 gap-6"
+            className="lg:col-span-8 reveal border border-border bg-background p-6 md:p-10 shadow-[var(--shadow-elevated)] flex flex-col sm:flex-row gap-4 items-start sm:items-end"
           >
-            <Field label="Your name" error={errors.name}>
-              <input
-                type="text"
-                value={form.name}
-                onChange={set("name")}
-                maxLength={100}
-                placeholder="Jane Doe"
-                className={inputCls(errors.name)}
-              />
-            </Field>
-
-            <Field label="Email" error={errors.email}>
+            <label className="flex-1 w-full">
+              <div className="flex items-baseline justify-between mb-2">
+                <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
+                  Your email
+                </span>
+              </div>
               <input
                 type="email"
                 value={form.email}
-                onChange={set("email")}
+                onChange={(e) => setForm({ email: e.target.value })}
                 maxLength={255}
-                placeholder="jane@company.com"
-                className={inputCls(errors.email)}
+                placeholder="you@company.com"
+                className={`w-full bg-background border ${errors.email ? "border-destructive" : "border-border"} px-4 py-3 font-mono-tech text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-foreground transition-colors`}
               />
-            </Field>
+              {errors.email && (
+                <div className="mt-2 font-mono-tech text-xs text-destructive">{errors.email}</div>
+              )}
+            </label>
 
-            <Field label="Company" error={errors.company} optional>
-              <input
-                type="text"
-                value={form.company}
-                onChange={set("company")}
-                maxLength={120}
-                placeholder="Company name"
-                className={inputCls(errors.company)}
-              />
-            </Field>
-
-            <Field label="Budget" error={errors.budget} optional>
-              <select
-                value={form.budget}
-                onChange={set("budget")}
-                className={inputCls(errors.budget)}
-              >
-                <option value="">Select a range</option>
-                {BUDGETS.map((b) => (
-                  <option key={b} value={b}>{b}</option>
-                ))}
-              </select>
-            </Field>
-
-            <div className="md:col-span-2">
-              <Field label="How can we help?" error={errors.message}>
-                <textarea
-                  value={form.message}
-                  onChange={set("message")}
-                  maxLength={1000}
-                  rows={6}
-                  placeholder="Briefly describe what you're trying to build or improve."
-                  className={`${inputCls(errors.message)} resize-y min-h-[140px]`}
-                />
-                <div className="mt-2 text-[10px] uppercase tracking-[0.25em] text-muted-foreground text-right">
-                  {form.message.length} / 1000
-                </div>
-              </Field>
-            </div>
-
-            <div className="md:col-span-2 flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-2">
-              <p className="font-mono-tech text-xs text-muted-foreground">
-                We reply within 24 hours · No spam, ever.
-              </p>
-              <button
-                type="submit"
-                disabled={submitting}
-                className="btn-liquid border border-foreground px-8 py-4 text-xs uppercase tracking-[0.22em] disabled:opacity-50"
-              >
-                {submitting ? "Sending…" : "Send message →"}
-              </button>
-            </div>
+            <button
+              type="submit"
+              disabled={submitting}
+              className="btn-liquid border border-foreground px-8 py-4 text-xs uppercase tracking-[0.22em] disabled:opacity-50 whitespace-nowrap"
+            >
+              {submitting ? "Sending…" : "Get in touch →"}
+            </button>
           </form>
 
           {/* Sidebar: alt contact */}
           <aside className="lg:col-span-4 reveal flex flex-col gap-6">
             <ContactCard
               k="Email us"
-              v="hello@propilo.studio"
-              href="mailto:hello@propilo.studio"
+              v="hello@propilo.in"
+              href="mailto:hello@propilo.in"
             />
             <ContactCard k="Studio" v="Chennai, India" />
             <ContactCard k="Hours" v="Mon–Fri · GMT+5:30" />
@@ -202,32 +134,6 @@ const Console = () => {
     </section>
   );
 };
-
-const inputCls = (err?: string) =>
-  `w-full bg-background border ${err ? "border-destructive" : "border-border"} px-4 py-3 font-mono-tech text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-foreground transition-colors`;
-
-const Field = ({
-  label, error, optional, children,
-}: {
-  label: string; error?: string; optional?: boolean; children: React.ReactNode;
-}) => (
-  <label className="block">
-    <div className="flex items-baseline justify-between mb-2">
-      <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
-        {label}
-      </span>
-      {optional && (
-        <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground/60">
-          optional
-        </span>
-      )}
-    </div>
-    {children}
-    {error && (
-      <div className="mt-2 font-mono-tech text-xs text-destructive">{error}</div>
-    )}
-  </label>
-);
 
 const ContactCard = ({ k, v, href }: { k: string; v: string; href?: string }) => {
   const inner = (
