@@ -12,26 +12,26 @@ const SERVICES: Service[] = [
   {
     id: "agentic",
     index: "S/01",
-    title: "Agentic Operations",
+    title: "AI Agents that do the work",
     blurb:
-      "Automated logic that replaces manual workflows. Decisioning, retrieval, and action loops — wired into your business.",
-    diagram: ["Trigger", "Planner", "Tools[ ]", "Critic", "Action"],
+      "Sales replies, support tickets, follow-ups, data entry — handled 24/7 by an AI workforce that reports to your team.",
+    diagram: ["Lead in", "Agent replies", "Qualifies", "Books meeting", "Revenue"],
   },
   {
     id: "native",
     index: "S/02",
-    title: "AI-Native Platforms",
+    title: "Products that ship in weeks",
     blurb:
-      "Building the next SaaS or Mobile MVP. Shipped in weeks, architected for the model of the next decade.",
-    diagram: ["Spec", "UX", "Model", "Pipeline", "Ship"],
+      "Your SaaS, mobile app or internal tool — designed, built and live in 6 weeks, not 6 months.",
+    diagram: ["Idea", "Design", "Build", "Launch", "Grow"],
   },
   {
     id: "cognitive",
     index: "S/03",
-    title: "Cognitive Integration",
+    title: "Growth on autopilot",
     blurb:
-      "Injecting intelligence into existing enterprise stacks. Surgical, secure, measurable.",
-    diagram: ["Stack", "Bridge", "LLM", "Eval", "Deploy"],
+      "SEO, content and ads that bring buyers in — wired to an AI agent that turns them into customers.",
+    diagram: ["Get found", "Get clicked", "Get replied", "Get closed", "Get paid"],
   },
 ];
 

@@ -10,12 +10,13 @@ const Method = () => (
         </div>
         <div className="md:col-span-9 reveal">
           <h2 className="font-serif-display text-5xl md:text-7xl leading-[0.95] tracking-tight">
-            How the system <span className="italic text-muted-foreground">actually works.</span>
+            How a visitor turns into <span className="italic text-muted-foreground">revenue.</span>
           </h2>
           <p className="mt-8 max-w-2xl font-mono-tech text-sm text-muted-foreground leading-relaxed">
             <span className="text-foreground">// </span>
-            Signal in. Reasoning in the middle. Action out — wired into a closed feedback loop.
-            This is the architecture we ship under every Propilo engagement.
+            Your website and SEO bring buyers in. An AI agent replies in seconds and qualifies them.
+            Propilo workflows quietly handle the repetitive work in the background.
+            Your team only touches deals that are ready to close — and the revenue funds the next cycle.
           </p>
         </div>
       </div>
@@ -29,10 +30,10 @@ const Method = () => (
 
         <div className="grid md:grid-cols-4 gap-6 mt-10">
           {[
-            ["01", "Decompose", "Map the system as it actually runs."],
-            ["02", "Diagnose", "Identify the leverage points."],
-            ["03", "Engineer", "Ship the smallest correct fix."],
-            ["04", "Compound", "Wire the loop. Walk away."],
+            ["01", "Get found", "SEO + a site that ranks for what your buyers actually search."],
+            ["02", "Reply instantly", "AI agent answers, qualifies and books — 24/7, in your voice."],
+            ["03", "Remove the busywork", "Workflows handle follow-ups, data entry and ops in the background."],
+            ["04", "Close & compound", "Your team focuses on real deals. Revenue funds the next cycle."],
           ].map(([n, t, d]) => (
             <div key={n} className="border-t border-border pt-4 reveal">
               <div className="font-mono-tech text-[10px] uppercase tracking-[0.3em] text-muted-foreground">{n}</div>
