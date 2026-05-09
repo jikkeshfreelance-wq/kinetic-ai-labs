@@ -27,10 +27,10 @@ const ContactCTA = () => (
               <span aria-hidden>→</span>
             </Link>
             <a
-              href="mailto:hello@propilo.studio"
+              href="mailto:hello@propilo.in"
               className="font-mono-tech text-xs uppercase tracking-[0.25em] text-muted-foreground hover:text-foreground transition-colors"
             >
-              or email · hello@propilo.studio
+              or email · hello@propilo.in
             </a>
           </div>
 

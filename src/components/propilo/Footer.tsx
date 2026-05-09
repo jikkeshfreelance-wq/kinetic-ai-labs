@@ -24,7 +24,7 @@ const Footer = () => (
         { label: "Method", to: "/#method" },
       ]} />
       <FooterCol title="Signal" items={[
-        { label: "hello@propilo.studio", href: "mailto:hello@propilo.studio" },
+        { label: "hello@propilo.in", href: "mailto:hello@propilo.in" },
         { label: "Chennai · IN", href: "#" },
         { label: "GMT+5:30", href: "#" },
       ]} />

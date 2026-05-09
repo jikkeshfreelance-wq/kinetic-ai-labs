@@ -21,7 +21,7 @@ const ContactPage = () => {
         <section className="border-t border-border">
           <div className="max-w-[1400px] mx-auto px-6 lg:px-10 py-24 grid md:grid-cols-3 gap-10 font-mono-tech text-sm">
             {[
-              ["Email", "hello@propilo.studio", "mailto:hello@propilo.studio"],
+              ["Email", "hello@propilo.in", "mailto:hello@propilo.in"],
               ["Studio", "Chennai, India", "#"],
               ["Hours", "Mon–Fri · GMT+5:30", "#"],
             ].map(([k, v, href]) => (

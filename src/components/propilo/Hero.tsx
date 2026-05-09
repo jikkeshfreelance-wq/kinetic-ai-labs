@@ -65,25 +65,27 @@ const Hero = () => {
           </span>
         </h1>
 
-        <div className="mt-16 grid md:grid-cols-12 gap-8 items-end">
-          <p className="md:col-span-6 lg:col-span-5 font-mono-tech text-sm text-muted-foreground leading-relaxed">
-            <span className="text-foreground">// </span>
-            Full-stack AI, Web, &amp; Mobile — engineered from Chennai to the world.
-            We build. You profit.
-          </p>
-          <div className="md:col-span-6 lg:col-span-7 flex flex-wrap gap-4 md:justify-end">
-            <a
-              href="#console"
-              className="btn-liquid border border-foreground px-7 py-4 text-xs uppercase tracking-[0.22em]"
-            >
-              Declare a project →
-            </a>
-            <a
-              href="#method"
-              className="btn-liquid btn-liquid-chrome border border-border px-7 py-4 text-xs uppercase tracking-[0.22em] text-muted-foreground hover:text-foreground"
-            >
-              See the method
-            </a>
+        <div className="mt-16 grid md:grid-cols-12 gap-8">
+          <div className="md:col-span-6 lg:col-span-5">
+            <p className="font-mono-tech text-sm text-muted-foreground leading-relaxed">
+              <span className="text-foreground">// </span>
+              Full-stack AI, Web, &amp; Mobile — engineered from Chennai to the world.
+              We build. You profit.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-4">
+              <a
+                href="#console"
+                className="btn-liquid border border-foreground px-7 py-4 text-xs uppercase tracking-[0.22em]"
+              >
+                Declare a project →
+              </a>
+              <a
+                href="#method"
+                className="btn-liquid btn-liquid-chrome border border-border px-7 py-4 text-xs uppercase tracking-[0.22em] text-muted-foreground hover:text-foreground"
+              >
+                See the method
+              </a>
+            </div>
           </div>
         </div>
 
